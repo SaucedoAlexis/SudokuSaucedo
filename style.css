@@ -1,0 +1,35 @@
+.tabla__td{
+    border: 3px solid black;
+    padding: 2px; 
+    font-size: 2rem;
+    width: 25px;
+    text-align: center;
+}
+
+.boton{
+    text-align: center;
+    font-size: 1.5rem;
+    
+}
+.tabla{
+    width: 500px;
+}
+.contenedorTabla{
+    display: flex; 
+    gap: 2rem;
+    margin-top: 5rem;
+    
+}
+
+.flex-row{
+    display: flex;
+}
+
+.flex-columns{
+    flex-direction: column;
+}
+
+.flex-centrar{
+    align-items: center;
+    justify-content: center;
+}
