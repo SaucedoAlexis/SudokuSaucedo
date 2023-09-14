@@ -5,6 +5,16 @@
     width: 25px;
     text-align: center;
 }
+.tabla__input{
+    width: 30px;
+    text-align: center;
+    font-size: 2rem;
+    padding: 0;
+    border: none;
+    outline: none;
+    
+
+}
 
 .boton{
     text-align: center;
