@@ -38,7 +38,7 @@ class Sudoku4x4 {
         while (this.quedanCeros(this.matriz)) { //bucle que se reproduce hasta que se generan 10 vueltas al sudoku o no quedan más 0
             vueltas += 1;
             if (vueltas > 10) {
-                alert("Este Sudoku no se puede resolver");
+                matriz = null;
                 break;
             }
             for (let fila = 0; fila < 4; fila++) {
@@ -72,6 +72,19 @@ class Sudoku4x4 {
         }
         return matriz
     }
+    
 
 
+}
+
+function compararMatrices(matriz,secondMatriz) {
+    for (let i = 0; i != 4; i++) {
+        for (let j = 0; j != 4; j++) {
+            if (matriz[i][j] != secondMatriz[i][j]){
+                return false;
+            }
+        }
+        
+    }
+    return true;
 }

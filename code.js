@@ -1,31 +1,53 @@
 
 
 
-const botonResolver = document.getElementById('resolver')
-
+//evento para resolver sudoku.
 botonResolver.onclick = () => {
-    const matriz = obtenerMatrizInputs(obtenerFilasDeInputs());
+    const solucionSudoku = sudokuResuelto();
 
-    const sudoku = new Sudoku4x4(matriz)
+    if (solucionSudoku == null){
+        numeroErroneo.innerHTML = "No se puede solucionar, intente nuevamente";
+        document.body.append(numeroErroneo);
+    }else{
+        numeroErroneo.innerHTML = "";
+        for (let i = 0; i != 4; i++) {
+            for (let j = 0; j != 4; j++) {
 
-    const sudokuResuelto = sudoku.resolver()
-    
+                obtenerFilasDeInputs()[i][j].value = solucionSudoku[i][j]
+            }
 
-    for (let i = 0; i != 4; i++) {
-        for (let j = 0; j != 4; j++) {
-
-            obtenerFilasDeInputs()[i][j].value = sudoku.resolver()[i][j]
         }
-
     }
 
 
 }
 
-const botonGenerar = document.getElementById('generarSudoku')
 
+// evento para generar un sudoku aleatorio.
 botonGenerar.onclick = () => {
+    solucionCorrecta.innerHTML = "";
+    numeroErroneo.innerHTML = "";
     insertarMatrizAleatoria()
+    divBotones.append(botonVerificar)
+}
+
+//evento para verificar la solución.
+botonVerificar.onclick = () => {
+    const matrizInputs = new Sudoku4x4(obtenerMatrizInputs())
+    solucionCorrecta.innerHTML = "";
+    numeroErroneo.innerHTML = "";
+    if (matrizInputs.resolver() != null && compararMatrices(matrizInputs.resolver(), obtenerMatrizInputs())) {
+        
+        solucionCorrecta.innerHTML = "La solución es correcta felicitaciones!!";
+        document.body.append(solucionCorrecta);
+        botonVerificar.remove()
+        
+    }else{
+        
+        numeroErroneo.innerHTML = "La solución no es correcta, intentalo de nuevo";
+        document.body.append(numeroErroneo);
+    }
+    
 }
 
 

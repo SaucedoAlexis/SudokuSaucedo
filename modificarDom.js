@@ -13,4 +13,11 @@ function insertarMatrizAleatoria() {
 
     }
 }
+//Creando elemento para un error
+const numeroErroneo = document.createElement("h2");
+
+
+//Creando elemento para acierto
+const solucionCorrecta = document.createElement("h2");
+
 
