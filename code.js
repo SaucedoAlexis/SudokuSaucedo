@@ -1,4 +1,12 @@
-
+if (localStorage.getItem('ultimoIngreso') == null){
+    localStorage.setItem('ultimoIngreso',Date());
+}else{
+    const ultimoIngreso = localStorage.getItem('ultimoIngreso')
+    console.log(ultimoIngreso)
+    const horarioActual = new Date();
+    
+    localStorage.setItem('ultimoIngreso',horarioActual);
+}
 
 
 //evento para resolver sudoku.
