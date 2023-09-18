@@ -1,52 +1,52 @@
-.tabla__td{
+.tabla__td {
     border: 3px solid black;
-    padding: 2px; 
+    padding: 2px;
     font-size: 2rem;
     width: 25px;
     text-align: center;
 }
-.tabla__input{
+
+.tabla__input {
     width: 30px;
     text-align: center;
     font-size: 2rem;
     padding: 0;
     border: none;
     outline: none;
-    
+
 
 }
 
-input[type=number] {
-    -webkit-appearance: textfield;
-    margin: 0;
-    appearance: none;
-    -moz-appearance: textfield;
-}
 
-.boton{
+.boton {
     text-align: center;
     font-size: 1.5rem;
-    
-}
-.tabla{
-    width: 500px;
-}
-.contenedorTabla{
-    display: flex; 
-    gap: 2rem;
-    margin-top: 5rem;
-    
+
 }
 
-.flex-row{
+.tabla {
+    width: 100%;
+    min-width: 310px;
+    max-width: 600px;
+}
+
+.contenedorTabla {
+    display: flex;
+    gap: 2rem;
+    margin-top: 5rem;
+
+
+}
+
+.flex-row {
     display: flex;
 }
 
-.flex-columns{
+.flex-columns {
     flex-direction: column;
 }
 
-.flex-centrar{
+.flex-centrar {
     align-items: center;
     justify-content: center;
 }

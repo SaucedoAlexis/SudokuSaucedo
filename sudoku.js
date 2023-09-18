@@ -11,6 +11,8 @@ class Sudoku4x4 {
         return this.matriz.map(row => row[columna]);
     }
 
+    
+
     mostrarCuadrante(columna, fila) {
         let filas = this.definirFilas(fila);
         let filasReducidas = columna <= 1 ? filas.map(fila => fila.slice(0, 2)) : filas.map(fila => fila.slice(2, 4))
@@ -32,9 +34,20 @@ class Sudoku4x4 {
     quedanCeros(matriz = this.matriz) {//ver si quedan 0 en el sudoku
         return matriz.map(fila => fila.includes(0)).includes(true) ? true : false
     }
-
+    esPosibleResolver(matriz = this.matriz){
+        for (let i = 0; i != 4; i++) {
+            for (let j = 0; j != 4; j++) {
+                if(matriz[i][j] < 0 || matriz[i][j] > 4 || isNaN(matriz[i][j])){
+                    return false
+                }
+            }
+            
+        }
+        return true
+    }
     resolver(matriz = this.matriz) {
         let vueltas = 0;
+        if (this.esPosibleResolver(matriz)){
         while (this.quedanCeros(this.matriz)) { //bucle que se reproduce hasta que se generan 10 vueltas al sudoku o no quedan más 0
             vueltas += 1;
             if (vueltas > 10) {
@@ -70,7 +83,11 @@ class Sudoku4x4 {
 
             }
         }
-        return matriz
+        
+    }else{
+        matriz = 'invalida'
+    }
+    return matriz
     }
     
 

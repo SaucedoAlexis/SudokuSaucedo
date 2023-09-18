@@ -4,20 +4,29 @@
 //evento para resolver sudoku.
 botonResolver.onclick = () => {
     const solucionSudoku = sudokuResuelto();
+    switch (solucionSudoku) {
+        case null:
+            numeroErroneo.innerHTML = "No se puede solucionar, intente nuevamente";
+            document.body.append(numeroErroneo);
+            break;
+        case 'invalida':
+            numeroErroneo.innerHTML = "Hay números inválidos, letras o espacios vacíos, solo se aceptan números del 0 al 4";
+            document.body.append(numeroErroneo);
+            break;
 
-    if (solucionSudoku == null){
-        numeroErroneo.innerHTML = "No se puede solucionar, intente nuevamente";
-        document.body.append(numeroErroneo);
-    }else{
-        numeroErroneo.innerHTML = "";
-        for (let i = 0; i != 4; i++) {
-            for (let j = 0; j != 4; j++) {
+        default:
+            numeroErroneo.innerHTML = "";
+            for (let i = 0; i != 4; i++) {
+                for (let j = 0; j != 4; j++) {
 
-                obtenerFilasDeInputs()[i][j].value = solucionSudoku[i][j]
+                    obtenerFilasDeInputs()[i][j].value = solucionSudoku[i][j]
+                }
+
             }
-
-        }
+            break;
     }
+
+
 
 
 }
@@ -37,17 +46,17 @@ botonVerificar.onclick = () => {
     solucionCorrecta.innerHTML = "";
     numeroErroneo.innerHTML = "";
     if (matrizInputs.resolver() != null && compararMatrices(matrizInputs.resolver(), obtenerMatrizInputs())) {
-        
+
         solucionCorrecta.innerHTML = "La solución es correcta felicitaciones!!";
         document.body.append(solucionCorrecta);
         botonVerificar.remove()
-        
-    }else{
-        
+
+    } else {
+
         numeroErroneo.innerHTML = "La solución no es correcta, intentalo de nuevo";
         document.body.append(numeroErroneo);
     }
-    
+
 }
 
 
