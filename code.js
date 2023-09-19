@@ -1,12 +1,50 @@
-if (localStorage.getItem('ultimoIngreso') == null){
-    localStorage.setItem('ultimoIngreso',Date());
-}else{
-    const ultimoIngreso = localStorage.getItem('ultimoIngreso')
-    console.log(ultimoIngreso)
-    const horarioActual = new Date();
-    
-    localStorage.setItem('ultimoIngreso',horarioActual);
+//clase usuario para almacenar en el localStorage
+const usuario = {
+    ultimoIngreso: "",
+    sudokusResueltos: 0,
+    sudokuGuardado: []
 }
+
+//acciones a realizar con el localStorage
+if (localStorage.getItem('usuario') == null) {
+    ultimoIngreso = new Date();
+    const fechaFormateada = ultimoIngreso.toLocaleTimeString("es-MX", {
+        hour12: false,
+        day:"2-digit",
+        month:"2-digit",
+        year:"2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    });
+    usuario.ultimoIngreso = fechaFormateada;
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+} else {
+
+    let usuarioRegistrado = JSON.parse(localStorage.getItem('usuario'));
+
+    const nuevoIngreso = new Date();
+
+    const fechaFormateada = nuevoIngreso.toLocaleTimeString("es-MX", {
+        hour12: false,
+        day:"2-digit",
+        month:"2-digit",
+        year:"2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    });
+    
+
+    usuarioRegistrado.ultimoIngreso = fechaFormateada;
+
+    localStorage.usuario = JSON.stringify(usuarioRegistrado);
+
+}
+
+
+
+
 
 
 //evento para resolver sudoku.
@@ -70,18 +108,3 @@ botonVerificar.onclick = () => {
 
 
 insertarMatrizAleatoria()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

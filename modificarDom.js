@@ -20,4 +20,23 @@ const numeroErroneo = document.createElement("h2");
 //Creando elemento para acierto
 const solucionCorrecta = document.createElement("h2");
 
+//Creando elemento para mostrar fecha
+const elementoFecha = document.createElement("p");
+
+const infoUsuario = JSON.parse(localStorage.getItem('usuario'));
+
+elementoFecha.innerHTML = `Su último ingreso fue el: ${infoUsuario.ultimoIngreso}`;
+
+const articuloInfoUsuario = document.getElementById('infoUsuario');
+
+articuloInfoUsuario.append(elementoFecha)
+
+//creando elemento para mostrar sudokus resueltos
+
+const elementoFecha = document.createElement("p");
+
+const resueltos = infoUsuario.sudokusResueltos;
+
+resueltos
+
 

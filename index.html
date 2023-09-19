@@ -9,50 +9,58 @@
 </head>
 
 <body class="">
-    <h1>Resolver Sudoku 4x4</h1>
+    <section>
 
-    <div id='contenedorTabla' class="contenedorTabla flex-columns flex-centrar">
-        <table id='tabla' class="tabla">
-            <tr>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila1"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila1"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila1"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila1"></td>
-            </tr>
-            <tr>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila2"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila2"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila2"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila2"></td>
-            </tr>
-            <tr>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila3"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila3"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila3"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila3"></td>
-            </tr>
-            <tr>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila4"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila4"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila4"></td>
-                <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila4"></td>
-            </tr>
+        <h1>Resolver Sudoku 4x4</h1>
+        <article id="infoUsuario">
 
-        </table>
-        <div id="botones">
+        </article>
+        <article>
+            <div id='contenedorTabla' class="contenedorTabla flex-columns flex-centrar">
+                <table id='tabla' class="tabla">
+                    <tr>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila1"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila1"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila1"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila1"></td>
+                    </tr>
+                    <tr>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila2"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila2"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila2"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila2"></td>
+                    </tr>
+                    <tr>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila3"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila3"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila3"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila3"></td>
+                    </tr>
+                    <tr>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila4"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila4"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila4"></td>
+                        <td class="tabla__td"><input type="text" maxlength="1" class="tabla__input fila4"></td>
+                    </tr>
 
-            <button id="resolver" class="boton">Resolver</button>
-            <button id="generarSudoku" class="boton">Generar otro sudoku</button>
-            <button id="verificarSudoku" class="boton">Verificar Solución</button>
+                </table>
+                <div id="botones">
 
-        </div>
-    </div>
+                    <button id="resolver" class="boton">Resolver</button>
+                    <button id="generarSudoku" class="boton">Generar otro sudoku</button>
+                    <button id="verificarSudoku" class="boton">Verificar Solución</button>
+
+                </div>
+            </div>
+        </article>
+    </section>
     <script src="matrices.js"></script>
     <script src="modificarDom.js"></script>
     <script src="datosDelDom.js"></script>
     <script src="botones.js"></script>
     <script src="sudoku.js"></script>
     <script src="code.js"></script>
+
 
 </body>
 
