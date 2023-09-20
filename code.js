@@ -10,9 +10,9 @@ if (localStorage.getItem('usuario') == null) {
     ultimoIngreso = new Date();
     const fechaFormateada = ultimoIngreso.toLocaleTimeString("es-MX", {
         hour12: false,
-        day:"2-digit",
-        month:"2-digit",
-        year:"2-digit",
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
@@ -20,21 +20,22 @@ if (localStorage.getItem('usuario') == null) {
     usuario.ultimoIngreso = fechaFormateada;
     localStorage.setItem('usuario', JSON.stringify(usuario));
 } else {
-
+    agregarFechaDom()
+    agregarSudokusVerificados()
     let usuarioRegistrado = JSON.parse(localStorage.getItem('usuario'));
 
     const nuevoIngreso = new Date();
 
-    const fechaFormateada = nuevoIngreso.toLocaleTimeString("es-MX", {
+    const fechaFormateada = nuevoIngreso.toLocaleTimeString("es-AR", {
         hour12: false,
-        day:"2-digit",
-        month:"2-digit",
-        year:"2-digit",
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
     });
-    
+
 
     usuarioRegistrado.ultimoIngreso = fechaFormateada;
 
@@ -52,16 +53,16 @@ botonResolver.onclick = () => {
     const solucionSudoku = sudokuResuelto();
     switch (solucionSudoku) {
         case null:
-            numeroErroneo.innerHTML = "No se puede solucionar, intente nuevamente";
+            numeroErroneo.innerText = "No se puede solucionar, intente nuevamente";
             document.body.append(numeroErroneo);
             break;
         case 'invalida':
-            numeroErroneo.innerHTML = "Hay números inválidos, letras o espacios vacíos, solo se aceptan números del 0 al 4";
+            numeroErroneo.innerText = "Hay números inválidos, letras o espacios vacíos, solo se aceptan números del 0 al 4";
             document.body.append(numeroErroneo);
             break;
 
         default:
-            numeroErroneo.innerHTML = "";
+            numeroErroneo.innerText = "";
             for (let i = 0; i != 4; i++) {
                 for (let j = 0; j != 4; j++) {
 
@@ -93,6 +94,8 @@ botonVerificar.onclick = () => {
     numeroErroneo.innerHTML = "";
     if (matrizInputs.resolver() != null && compararMatrices(matrizInputs.resolver(), obtenerMatrizInputs())) {
 
+        sumarVerificacionUsuario();
+
         solucionCorrecta.innerHTML = "La solución es correcta felicitaciones!!";
         document.body.append(solucionCorrecta);
         botonVerificar.remove()
@@ -105,6 +108,28 @@ botonVerificar.onclick = () => {
 
 }
 
+//evento para guardar partida.
+botonGuardarSudoku.onclick = () => {
 
+    const matrizActual = obtenerMatrizInputs();
+
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    usuario.sudokuGuardado = matrizActual;
+
+    localStorage.usuario = JSON.stringify(usuario);
+}
+
+//evento para cargar partida.
+
+botonCargarSudoku.onclick = () => {
+
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    const sudokuGuardado = usuario.sudokuGuardado;
+
+    insertarMatriz(sudokuGuardado)
+
+}
 
 insertarMatrizAleatoria()
